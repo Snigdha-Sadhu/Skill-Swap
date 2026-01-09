@@ -1,6 +1,6 @@
 import axios from 'axios';
 const API=axios.create({
-    baseURL:'http://localhost:7000/api',
+    baseURL:'https://skill-swap-backend-7a5g.onrender.com',
     headers:{
         'Content-Type':'application/json',
     },
