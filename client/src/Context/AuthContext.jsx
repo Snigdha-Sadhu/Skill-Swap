@@ -8,6 +8,10 @@ export function AuthProvider({children}){
 useEffect(()=>{
     const token=localStorage.getItem('token')
     const savedUser=localStorage.getItem('user')
+    if(!token){
+            setUser(null);
+            return;
+        }
     if(token){
         API.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         if(savedUser){
