@@ -28,14 +28,16 @@ function AppRoutes(){
   return(
     
       <Routes>
-        <Route path="/" element={user ? <Navigate to ="/dashboard"/> :<Navigate to=
+        <Route path="/" element={<Front/>}></Route>
+        <Route path="/dashboard" element={user ? <Dashboard/> :<Navigate to=
           
-          "/front"/>}/>
+          "/login"/>}/>
           <Route path="/login" element={<Login/>}></Route>
             <Route path="/signup" element={<Signup/>}></Route>
-            <Route path="/front" element={<Front/>}></Route>
+            
             <Route path="/profile" element={
-               <PrivateRoute><Profile/></PrivateRoute>
+              <PrivateRoute><Profile/></PrivateRoute>
+            
                }>
 
                </Route>
@@ -59,7 +61,7 @@ function AppRoutes(){
                 </Route>
               
           <Route path="/dashboard" element={
-            <PrivateRoute>
+           <PrivateRoute>
             <Dashboard/>
              </PrivateRoute>
             }></Route>
