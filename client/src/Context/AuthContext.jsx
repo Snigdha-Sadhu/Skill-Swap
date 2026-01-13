@@ -33,8 +33,9 @@ const login=(token,userData)=>{
 const logout=()=>{
     localStorage.removeItem('token');
       localStorage.removeItem('user');
-    setUser(null);
+   
     delete API.defaults.headers.common['Authorization'];
+     setUser(null);
     if(socket.connected){
         socket.disconnect();
     }
