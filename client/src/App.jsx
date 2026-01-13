@@ -74,9 +74,9 @@ function App() {
   return (
 
     <AuthProvider>
-      <BrowserRouter>
+     
         <AppRoutes />
-      </BrowserRouter>
+      
     </AuthProvider>
 
   
