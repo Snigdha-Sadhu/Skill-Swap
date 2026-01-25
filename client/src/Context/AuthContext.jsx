@@ -13,6 +13,7 @@ const [user, setUser] = useState(() => {
 const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+     console.log("Token at useEffect:", token);
     if (!token) {
         setUser(null);
         setLoading(false);
@@ -24,6 +25,7 @@ const [loading, setLoading] = useState(true);
       // Verify token and get fresh user data from server
       API.get("/auth/me")
         .then((res) => {
+            console.log("Auth/me success:", res.data.user);
           setUser(res.data.user);
           localStorage.setItem("user", JSON.stringify(res.data.user));
         })
