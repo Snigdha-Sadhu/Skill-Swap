@@ -13,7 +13,11 @@ const [user, setUser] = useState(() => {
 const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (token) {
+    if (!token) {
+        setUser(null);
+        setLoading(false);
+        return;
+    }
       // Set the auth header for API calls
       API.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
@@ -32,10 +36,7 @@ const [loading, setLoading] = useState(true);
             setUser(null);
             setToken(null);
         }).finally(() => setLoading(false));
-        }else{
-            setLoading(false);
-            setUser(null);
-        }
+      
     
 },[token]);
 const login=(token,userData)=>{
