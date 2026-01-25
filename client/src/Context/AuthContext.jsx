@@ -25,9 +25,9 @@ const [loading, setLoading] = useState(true);
       // Verify token and get fresh user data from server
       API.get("/auth/me")
         .then((res) => {
-            console.log("Auth/me success:", res.data.user);
-          setUser(res.data.user);
-          localStorage.setItem("user", JSON.stringify(res.data.user));
+            console.log("Auth/me success:", res.data);
+          setUser(res.data);
+          localStorage.setItem("user", JSON.stringify(res.data));
         })
         .catch((err) => {
           console.warn("Auth check failed", err.response?.data || err);
