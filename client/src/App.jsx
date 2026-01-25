@@ -22,8 +22,11 @@ function PrivateRoute({children}){
   return user? children :<Navigate to ="/login"/>
 }
 function AppRoutes(){
-  const {user}=useContext(AuthContext);
-   
+  const {user,loading}=useContext(AuthContext);
+   if (loading) {
+    return <div>Loading...</div>; // or a spinner component
+  }
+
 
   return(
     
