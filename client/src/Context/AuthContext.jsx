@@ -9,6 +9,7 @@ const [user, setUser] = useState(() => {
   });
   
   const [token, setToken] = useState(() => localStorage.getItem("token"));
+const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (token) {
@@ -29,8 +30,9 @@ const [user, setUser] = useState(() => {
             
             setUser(null);
             setToken(null);
-        });
+        }).finally(() => setLoading(false));
         }else{
+            setLoading(false);
             setUser(null);
         }
     
@@ -53,6 +55,6 @@ const logout=()=>{
         socket.disconnect();
     }
 }
-return <AuthContext.Provider value={{user,login,logout}}>{children}</AuthContext.Provider>
+return <AuthContext.Provider value={{user,loading,login,logout}}>{children}</AuthContext.Provider>
 }
 //export {  AuthProvider as default };
