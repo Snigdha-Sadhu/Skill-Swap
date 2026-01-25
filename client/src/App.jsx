@@ -24,7 +24,7 @@ function PrivateRoute({children}){
 function AppRoutes(){
   const {user,loading}=useContext(AuthContext);
    if (loading) {
-    return <div>Loading...</div>; // or a spinner component
+    return <div className='min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50'>Loading...</div>; // or a spinner component
   }
 
 
